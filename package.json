@@ -1,0 +1,25 @@
+{
+  "name": "entregaslp3.api",
+  "version": "1.0.0",
+  "description": "API EM NODEJS COM MONGODB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Di-Go/ENTREGASLP3.API.git"
+  },
+  "author": "DIEGO ALEIXO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Di-Go/ENTREGASLP3.API/issues"
+  },
+  "homepage": "https://github.com/Di-Go/ENTREGASLP3.API#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16",
+    "nodemon": "^2.0.4"
+  }
+}
