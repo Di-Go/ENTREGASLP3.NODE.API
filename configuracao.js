@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser');
-
 const express = require('express');
 const servidor = express();
 
@@ -16,6 +15,6 @@ const servidor = express();
 //#region Configuração do Servidor
     const PORTA = 8082;
     servidor.listen(PORTA, () => {
-        console.log('Servidor executando no endereço http://localhost:${PORTA}');
+        console.log(`Servidor executando no endereço http://localhost:${PORTA}`);
     });
 //#endregion
