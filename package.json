@@ -4,8 +4,7 @@
   "description": "API EM NODEJS COM MONGODB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon configuracao.js"
+    "start": "start mongod & nodemon configuracao.js"
   },
   "repository": {
     "type": "git",
