@@ -7,11 +7,19 @@ const CategoriaFilme = require('../models/CategoriaFilmeModel');
     // Cadastro
         router.post('/cadastro_categoria_filme', async (requisicao, resposta) => {
             try{
-                var categoria = await CategoriaFilme.create(requisicao.body);
+                if (requisicao.body.id) {
+                    // IMPLEMENTAR UPDATE
+                    console.log(requisicao.body);
+                    resposta.send(requisicao.body);
+                }
+                else{
+                    console.log(requisicao.body);
+                    var categoria = await CategoriaFilme.create(requisicao.body);
+                    resposta.send(categoria);
+                }
             }catch (erro){
-                return resposta.status(400).send({error: 'Falha ao registrar'});
+                return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
             }
-            resposta.send(categoria);
         });
 //#endregion
 
