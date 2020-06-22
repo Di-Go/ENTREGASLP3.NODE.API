@@ -23,9 +23,6 @@ const servidor = express();
         require("./src/controllers/CategoriaFilmeController")(servidor);
 //#endregion
 
-//#region Configuração de Rotas
-//#endregion
-
 //#region Configuração do Servidor
     const PORTA = 8082;
     servidor.listen(PORTA, () => {

@@ -4,19 +4,42 @@ const router = express.Router();
 const CategoriaFilme = require('../models/CategoriaFilmeModel');
 
 //#region Rotas
-    // Cadastro
+    // Cadastrar (Create)
         router.post('/cadastro_categoria_filme', async (requisicao, resposta) => {
             try{
                 if (requisicao.body.id) {
                     // IMPLEMENTAR UPDATE
-                    console.log(requisicao.body);
                     resposta.send(requisicao.body);
                 }
                 else{
-                    console.log(requisicao.body);
                     var categoria = await CategoriaFilme.create(requisicao.body);
                     resposta.send(categoria);
                 }
+            }catch (erro){
+                return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
+            }
+        });
+    // Listar (Read)
+        router.get('/listar_categoria_filme', async (requisicao, resposta) => {
+            try{
+                const categorias = await CategoriaFilme.find();
+                return resposta.send({ categorias });
+            }catch (erro){
+                return resposta.status(400).send({error: 'Falha ao carregar categorias. '+erro});
+            }
+        });
+    // Atualizar (Update)
+        router.put('/atualizar_categoria_filme', async (requisicao, resposta) => {
+            try{
+                
+            }catch (erro){
+                return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
+            }
+        });
+    // Excluir (Delete)
+        router.delete('/excluir_categoria_filme', async (requisicao, resposta) => {
+            try{
+                
             }catch (erro){
                 return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
             }
