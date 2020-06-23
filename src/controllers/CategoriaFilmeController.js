@@ -8,8 +8,15 @@ const CategoriaFilme = require('../models/CategoriaFilmeModel');
         router.post('/cadastro_categoria_filme', async (requisicao, resposta) => {
             try{
                 if (requisicao.body.id) {
-                    // IMPLEMENTAR UPDATE
-                    resposta.send(requisicao.body);
+                    const {_id, descricao } = requisicao.body;
+                    const categoria = await CategoriaFilme.findOneAndUpdate(_id, 
+                    {
+                        descricao
+                    }, 
+                    {
+                        new: true,
+                    });
+                    resposta.send(categoria);
                 }
                 else{
                     var categoria = await CategoriaFilme.create(requisicao.body);
@@ -28,20 +35,46 @@ const CategoriaFilme = require('../models/CategoriaFilmeModel');
                 return resposta.status(400).send({error: 'Falha ao carregar categorias. '+erro});
             }
         });
-    // Atualizar (Update)
-        router.put('/atualizar_categoria_filme', async (requisicao, resposta) => {
+        router.get('/listar_categoria_filme/:id', async (requisicao, resposta) => {
             try{
-                
+                const categoria = await CategoriaFilme.findById(requisicao.params.id);
+                return resposta.send(categoria);
+            }catch (erro){
+                return resposta.status(400).send({error: 'Falha ao carregar categorias. '+erro});
+            }
+        });
+    // Atualizar (Update)
+        router.post('/atualizar_categoria_filme', async (requisicao, resposta) => {
+            try{
+                if (requisicao.body.id) {
+                    const {_id, descricao } = requisicao.body;
+                    const categoria = await CategoriaFilme.findOneAndUpdate(_id, 
+                    { 
+                        descricao 
+                    }, 
+                    {
+                        new: true
+                    });
+                    resposta.send(categoria);
+                }else{
+                    throw new Error('Update');
+                }
             }catch (erro){
                 return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
             }
         });
     // Excluir (Delete)
-        router.delete('/excluir_categoria_filme', async (requisicao, resposta) => {
+        router.post('/excluir_categoria_filme', async (requisicao, resposta) => {
             try{
-                
+                if (requisicao.body.id) {
+                    const {_id, descricao } = requisicao.body;
+                    await CategoriaFilme.deleteOne(_id)
+                    resposta.send('Deletado Com Sucesso');
+                }else{
+                    throw new Error('Delete');
+                }
             }catch (erro){
-                return resposta.status(400).send({error: 'Falha ao cadastrar ou atualizar categoria. '+erro});
+                return resposta.status(400).send({error: 'Falha ao deletar categoria. '+erro});
             }
         });
 //#endregion
