@@ -14,13 +14,17 @@ API destinada a fornecer serviços para o Front-end [ENTREGASLP3](https://github
 
 É necessário ter instalado:<br/>
 **NODE JS**
+**MongoDB**
+
+É necessario ter configurado o MongoDB nas váriaveis de ambiente.<br/>
+> Exemplo diretório do mongo: 'C:\Program Files\MongoDB\Server\4.2\bin'
 
 1. Clone ou baixe a aplicação.
 2. Para instalar as dependências do projeto, dentro do diretório da aplicação execute o comando:<br/>
     > npm install
 
 3. Para iniciar a aplicação execute o comando:<br/>
-    > npm run server
+    > npm start
 
 # Tecnologias Utilizadas
 ### Back-End
