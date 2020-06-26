@@ -77,6 +77,18 @@ const CategoriaFilme = require('../models/CategoriaFilmeModel');
                 return resposta.status(400).send({error: 'Falha ao deletar categoria. '+erro});
             }
         });
+        router.delete('/excluir_categoria_filme/:id', async (requisicao, resposta) => {
+            try{
+                if (requisicao.params.id) {
+                    await CategoriaFilme.deleteOne(requisicao.params.id)
+                    resposta.send({ sucesso: true });
+                }else{
+                    throw new Error('Delete');
+                }
+            }catch (erro){
+                return resposta.status(400).send({error: 'Falha ao deletar categoria. '+erro});
+            }
+        });
 //#endregion
 
 //#region Rota Raiz
