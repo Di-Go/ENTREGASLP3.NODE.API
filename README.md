@@ -13,7 +13,7 @@ API destinada a fornecer serviços para o Front-end [ENTREGASLP3](https://github
 # Como Executar Esta Aplicação
 
 É necessário ter instalado:<br/>
-**NODE JS**
+**NODE JS**<br/>
 **MongoDB**
 
 É necessario ter configurado o MongoDB nas váriaveis de ambiente.<br/>
