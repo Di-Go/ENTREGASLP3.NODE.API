@@ -1,4 +1,4 @@
-# ENTREGASLP3.API
+# ENTREGASLP3 API EM NODE
 
 Atividades processuais da matéria de Linguagem de Programação III - Unialfa
 
